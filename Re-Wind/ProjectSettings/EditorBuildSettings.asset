@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c4e0dabcb08210f4196fe1213d492daf
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Strand.unity
+    guid: 12adcfe21dac85f4cb9569080bcca7ff
+  - enabled: 1
+    path: Assets/Scenes/Hafen.unity
+    guid: aff53053ef41c30478abb280ddcd4721
+  - enabled: 1
+    path: Assets/Scenes/Gewitter.unity
+    guid: 3a5116c783ac9ac42945e0c2b1fce26d
+  m_configObjects: {}
