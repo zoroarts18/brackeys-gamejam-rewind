@@ -70,7 +70,7 @@ public class camFollow : MonoBehaviour
         
        
     }
-
+    
     void Zoom()
     {
         float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimit);

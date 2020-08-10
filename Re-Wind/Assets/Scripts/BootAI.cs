@@ -23,27 +23,31 @@ public class BootAI : MonoBehaviour
     
     void Update()
     {
-        if(faster == false)
+        if(Player.GetComponent<HeissLuftBallon>().moved == true)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(Player.transform.position.x, transform.position.y), 5 * Time.deltaTime);
+            if (faster == false)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(Player.transform.position.x + 2, transform.position.y), 6 * Time.deltaTime);
+            }
+
+
+            if (transform.position.x == Player.transform.position.x +2 && PunktBisBoostReached == false)
+            {
+                Sprechblase.SetActive(true);
+                PunktBisBoostReached = true;
+
+                Invoke("GoFaster", 3);
+            }
+
+            if (faster == true)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, Ziel.transform.position, 10 * Time.deltaTime);
+            }
+
+            if (transform.position.x == Ziel.transform.position.x)
+                Destroy(this.gameObject);
         }
         
-
-        if(transform.position.x == Player.transform.position.x && PunktBisBoostReached == false)
-        {
-            Sprechblase.SetActive(true);
-            PunktBisBoostReached = true;
-
-            Invoke("GoFaster", 3);
-        }
-
-        if(faster  == true)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, Ziel.transform.position, 9 * Time.deltaTime);
-        }
-
-        if (transform.position.x == Ziel.transform.position.x)
-            Destroy(this.gameObject);
     }
 
     public void GoFaster()

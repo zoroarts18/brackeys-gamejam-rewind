@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BlitzGenerator : MonoBehaviour
 {
-   
+
+    private AudioSource Donner;
 
     public GameObject Player;
     public GameObject BlitzObj;
@@ -18,6 +19,8 @@ public class BlitzGenerator : MonoBehaviour
     public GameObject BlitzPanel;
     void Start()
     {
+        Donner = GetComponent<AudioSource>();
+
         BlitzPanel.SetActive(false);
        
     }
@@ -25,7 +28,9 @@ public class BlitzGenerator : MonoBehaviour
     private void Update()
     {
         //Ab 160 hört Gewitter auf
-        
+
+        if (Player.GetComponent<HeissLuftBallon>().moved == true)
+        {
             if (BlitzImGang == false && TimeBetweenBlitz > 6 && Player.transform.position.x <= 160)
             {
                 StartCoroutine(Blitz());
@@ -38,8 +43,10 @@ public class BlitzGenerator : MonoBehaviour
             {
                 TimeBetweenBlitz += Time.deltaTime;
             }
-        
-        
+
+        }
+
+
 
 
     }
@@ -56,8 +63,11 @@ public class BlitzGenerator : MonoBehaviour
         GameObject currentBlitz = Instantiate(BlitzObj, 
             new Vector2(PlayerPos.x = Mathf.Clamp(PlayerPos.x, PlayerPos.x, PlayerPos.x -= 1.5f) , 7.21f), 
             Quaternion.identity);
+        
 
         yield return new WaitForSeconds(1.3f);
+
+        Donner.Play();
         BlitzAnim = currentBlitz.GetComponent<Animator>();
         BlitzAnim.SetTrigger("Blitz");
         BlitzPanel.SetActive(true);

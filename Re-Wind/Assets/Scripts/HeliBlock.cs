@@ -25,7 +25,7 @@ public class HeliBlock : MonoBehaviour
     public void Shoot()
     {
         GameObject currentBullet = Instantiate(Bullet, new Vector2(shootPoint.position.x, shootPoint.position.y), Quaternion.identity);
-        
+       
     }
 
     private void OnTriggerEnter2D(Collider2D other)

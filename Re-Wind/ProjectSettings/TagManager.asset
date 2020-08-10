@@ -8,6 +8,8 @@ TagManager:
   - Cloud
   - Obstacle
   - Button
+  - Goal
+  - Anim
   layers:
   - Default
   - TransparentFX
